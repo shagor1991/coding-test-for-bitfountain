@@ -5,9 +5,14 @@ import store from './store'
 Vue.use(VueRouter)
 
 import Login from './components/auth/Login'
+import Home from './components/pages/Home'
 import Dashboard from './components/pages/Dashboard'
 
 const routes = [
+    {
+        path: '/',
+        component: Home,
+    },
     {
         path: '/login',
         component: Login,

@@ -37,24 +37,13 @@
             </tbody>
         </table>
 
-        <paginate
-            :page-count="10"
-            :container-class="pagination"
-            :prev-text="prev"
-            :next-text="next"
-            :click-handler="clickCallback"
-            :page-class="pageClass"
-            :prev-class="prevClass"
-            :next-class="nextClass"
-            :page-link-class="pageLinkClass">
-        </paginate>
 
         <!-- Modal -->
         <div class="modal fade" id="DeviceModal" tabindex="-1" aria-labelledby="DeviceModalLabel" aria-hidden="true">
             <div class="modal-dialog modal-lg">
                 <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="DeviceModalLabel">Modal title</h5>
+                    <h5 class="modal-title" id="DeviceModalLabel">Model List</h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                     </button>
@@ -96,7 +85,7 @@
             <div class="modal-dialog modal-lg">
                 <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="AddNewModalLabel">Modal title</h5>
+                    <h5 class="modal-title" id="AddNewModalLabel">Add New</h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                     </button>
@@ -172,6 +161,7 @@
                                 {{Object.values(formError.errors.Comment)[0]}}
                             </div>
                         </div>
+
                     
                 </div>
                 <div class="modal-footer">
@@ -188,12 +178,9 @@
 </template>
 
 <script>
-import Vue from 'vue'
-import Paginate from 'vuejs-paginate'
 import axios from 'axios'
 import $ from 'jquery'
 
-Vue.component('paginate', Paginate)
 export default {
   components: {  },
     name: 'Dashboard',
@@ -212,13 +199,6 @@ export default {
     data(){
         return {
             token: localStorage.getItem('token'),
-            pagination: 'pagination',
-            prev: 'PREV',
-            next: 'NEXT',
-            pageLinkClass: 'pageLinkClass',
-            pageClass: 'pageClass',
-            prevClass: 'prevClass',
-            nextClass: 'nextClass',
             showModal: false,
             sData: null,
             form: {
